@@ -1,0 +1,80 @@
+enable
+configure terminal
+no ip domain-lookup
+hostname SwBON
+no cdp run
+service password-encryption
+enable secret ciscosecpa55
+enable password ciscoenapa55
+banner motd $ Vineri va avea loc o sedinta IT !$
+line console 0
+password ciscoconpa55
+login
+logging synchronous
+exec-timeout 20 15
+exit
+line vty 0 15
+password ciscovtypa55
+login
+logging synchronous
+exec-timeout 15 10
+end
+--------
+MANUAL: copy running-config startup-config
+
+--------
+
+MANUAL: clock set *data*
+
+configure terminal
+ip domain-name cti.ro
+username Admin01 privilege 15 secret Admin01pa55
+line vty 0 15
+transport input ssh
+login local
+exit
+crypto key generate rsa
+
+-----
+interface vlan 1
+description Leg cu reteaua ip/masca
+ip address ip masca
+no shutdown
+
+
+
+ip default-gateway [adresa router]
+
+interface range fa0/1-24
+
+copy running-config startup-config
+
+MASTI:  /30 255.255.255.252
+	
+	/29 255.255.255.248
+	
+	/28 255.255.255.240
+
+	/27 255.255.255.224
+
+	/26 255.255.255.192
+	
+	/25 255.255.255.128
+
+	/24 255.255.255.0
+
+	/23 255.255.254.0
+
+	/22 255.255.252.0
+
+	/21 255.255.248.0
+
+	/20 255.255.240.0
+
+	/19 255.255.224.0
+
+	/18 255.255.192.0
+
+	/17 255.255.128.0
+
+	/16 255.255.0.0

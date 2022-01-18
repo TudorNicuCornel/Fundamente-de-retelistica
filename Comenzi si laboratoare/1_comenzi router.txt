@@ -1,0 +1,94 @@
+enable
+configure terminal
+no ip domain-lookup
+hostname RMODIFICA
+no cdp run
+service password-encryption
+security passwords min-length 10
+login block-for 40 attempts 3 within 10
+enable secret ciscosecpa55
+enable password ciscoenapa55
+banner login $ Accesul persoanelor neautorizate este strict interzis! $
+banner motd $ Vineri serverul va intra in mentenanta! $
+line console 0
+password ciscoconpa55
+login
+logging synchronous
+exec-timeout 10 10
+exit
+line vty 0 15
+password ciscovtypa55
+login
+logging synchronous
+exec-timeout 20 25
+end
+
+-------
+MANUAL: clock set data
+-------
+configure terminal
+ip domain-name cti.ro
+username Admin01 privilege 15 secret Admin01pa55
+line vty 0 15
+transport input ssh
+login local
+exit
+crypto key generate rsa
+2048
+
+--------
+interface giga 0/0
+description Leg cu Ramura ****
+ip address ip masca
+no shutdown
+
+--------
+
+interface serial 0/0/0 sau 0/0/1
+description leg cu router-ul RCEVA
+ip address ip masca
+no shutdown
+end
+
+--------------
+DHCP ROUTER
+---------------
+
+ip dhcp exclude-address (intervalul in care sa asigneze ip uri)
+ip dhcp pool (Name)
+network (N.A-ul de la lan u l unde vrem sa ajungem + masca)
+default-router (DFGT)
+dns-server (Server)
+domain-name cti.ro
+
+copy running-config startup-config
+
+MASTI:  /30 255.255.255.252
+	
+	/29 255.255.255.248
+	
+	/28 255.255.255.240
+
+	/27 255.255.255.224
+
+	/26 255.255.255.192
+	
+	/25 255.255.255.128
+
+	/24 255.255.255.0
+
+	/23 255.255.254.0
+
+	/22 255.255.252.0
+
+	/21 255.255.248.0
+
+	/20 255.255.240.0
+
+	/19 255.255.224.0
+
+	/18 255.255.192.0
+
+	/17 255.255.128.0
+
+	/16 255.255.0.0
