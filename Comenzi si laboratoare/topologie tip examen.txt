@@ -1,0 +1,13 @@
+CERINTE 
+- ETAPA 1- CABLARE FIECARE LAN
+- ETAPA 2- SUBNETARE
+- ETAPA 3- CONFIGURAREA ECHIPAMENTELOR
+- ETAPA 4 - ASIGNAREA ADRESELOR IP OPTIME,DIN ADRESA 97.228.135.100 /12 CONFORM CERINTELOR
+	*LAN Muscat1 - 1800 H
+	*LAN Muscat2 - 14 useri , FERMA DE SERVERE - DHCP,DNS,FTP,WEB
+	*LAN Muscat3 - 7200 useri
+	*Wi-Fi Muscat3 = WPA2 PERSONAL - PASS=Muscat97pa55
+	*2 Laptopuri conectate la Wi-Fi , Lap1 Blocat dupa MAC
+- ETAPA 5- Rutarea. Testare Ping+ssh
+- ETAPA 6- Toate echipamentele trebuie sa comunice intre ele .Servicii Active
+- ETAPA 7- Functionarea completa a topologiei. rutare totala + teste + servicii
